@@ -4,12 +4,6 @@
 CONFIG="shadowsocks.json"
 
 
-if [[ -f $CONFIG ]]
-  then
-    rm $CONFIG
-fi
-
-
 PORT=3108
 if [[ -n "$SS_PORT" ]]
   then PORT=$SS_PORT
@@ -33,16 +27,17 @@ if [[ -n "$SS_PASSWORD" ]]
   then PASSWORD=$SS_PASSWORD
 fi
 
+{
+  echo "{"
+  echo "  \"server\": \"0.0.0.0\","
+  echo "  \"server_port\": $PORT,"
+  echo "  \"password\": \"$PASSWORD\","
+  echo "  \"timeout\": $TIMEOUT,"
+  echo "  \"method\": \"$METHOD\","
+  echo "  \"fast_open\": false,"
+  echo "  \"workers\": 1"
+  echo "}"
+} > $CONFIG
 
-echo "{" >> $CONFIG
-echo "  \"server\": \"0.0.0.0\"," >> $CONFIG
-echo "  \"server_port\": $PORT," >> $CONFIG
-echo "  \"password\": \"$PASSWORD\"," >> $CONFIG
-echo "  \"timeout\": $TIMEOUT," >> $CONFIG
-echo "  \"method\": \"$METHOD\"," >> $CONFIG
-echo "  \"fast_open\": false," >> $CONFIG
-echo "  \"workers\": 1" >> $CONFIG
-echo "}" >> $CONFIG
-
-ssserver -c $CONFIG
+exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
