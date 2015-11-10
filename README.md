@@ -23,6 +23,10 @@ Expert
                       -e SS_METHOD=your_method \
                       hbrls/docker-shadowsocks
 
+1. [Ri Xu Online: ShadowSocks Setup Guide](https://xuri.me/2014/08/14/shadowsocks-setup-guide.html)
+
+2. [Using Shadowsocks with Command Line Tools](https://github.com/shadowsocks/shadowsocks/wiki/Using-Shadowsocks-with-Command-Line-Tools)
+
 MIT License
 ===========
 
