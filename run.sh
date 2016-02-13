@@ -39,5 +39,5 @@ fi
   echo "}"
 } > $CONFIG
 
-exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+exec /usr/bin/supervisord -c /etc/supervisord.conf
 

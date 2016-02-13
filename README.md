@@ -4,24 +4,24 @@ docker-shadowsocks
 Easy
 ====
 
-    $ sudo docker run -d \
-                      --name shadowsocks \
-                      -p 3108:3108 \
-                      hbrls/docker-shadowsocks
+    $ docker run -d \
+                 --name shadowsocks \
+                 -p 3108:3108 \
+                 hbrls/shadowsocks
     # the default password is "youshallnotpass"
 
 Expert
 ======
 
-    $ sudo docker run -d \
-                      --name shadowsocks \
-                      -p your_port:your_port \
-                      -v /path/to/your/log:/var/log/supervisor \
-                      -e SS_PORT=your_port \
-                      -e SS_PASSWORD=your_password \
-                      -e SS_TIMEOUT=your_timeout \
-                      -e SS_METHOD=your_method \
-                      hbrls/docker-shadowsocks
+    $ docker run -d \
+                 --name shadowsocks \
+                 -p your_port:your_port \
+                 -v /path/to/your/log:/var/log/supervisor \
+                 -e SS_PORT=your_port \
+                 -e SS_PASSWORD=your_password \
+                 -e SS_TIMEOUT=your_timeout \
+                 -e SS_METHOD=your_method \
+                 hbrls/shadowsocks
 
 1. [Ri Xu Online: ShadowSocks Setup Guide](https://xuri.me/2014/08/14/shadowsocks-setup-guide.html)
 
